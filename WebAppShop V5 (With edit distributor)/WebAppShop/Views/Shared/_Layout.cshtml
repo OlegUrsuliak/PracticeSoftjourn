@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TouristShopWebApplication</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                @* Кнопочка Home яка перекидує на головну сторінку*@
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Tourist shop</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                @* Верхній список-меню навігації по проєкту*@
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="nav-link text-dark" @*asp-area="" asp-controller="Home" asp-action="Goods"*@>Goods</a>
+
+                                <div class="dropdown-child">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Backpack" asp-action="Index">Backpack</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Caremat" asp-action="Index">Caremat</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Clothes" asp-action="Index">Clothes</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Dish" asp-action="Index">Dish</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Electronic" asp-action="Index">Electronic</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Equipment" asp-action="Index">Equipment</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Food" asp-action="Index">Food</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Literature" asp-action="Index">Literature</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Shoe" asp-action="Index">Shoe</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SleapingBag" asp-action="Index">Sleaping bag</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Tent" asp-action="Index">Tent</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            @*<a class="nav-link text-dark" asp-area="" asp-controller="Назва контроллеру" asp-action="Функція яка викликатиметься">Текст що відображатиметься</a>*@
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Distributor" asp-action="Index">Distributor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Tenant" asp-action="Index">Tenant</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Buyer">Buyer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @* Футер, тобто нижня "табличка" *@
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - TouristShopWebApplication - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
